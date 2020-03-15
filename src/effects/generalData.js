@@ -14,7 +14,7 @@ const fetch_error = error => ({
     error
 })
 
-const url = 'https://covid19.mathdro.id/api'
+const url = 'https://covid19.mathdro.id/api/countries/venezuela'
 
 const initialState = {
     data: [],

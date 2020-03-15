@@ -10,13 +10,15 @@ class App extends Component {
   constructor(props) {
     super(props)
     const { generalData } = props
-    generalData('test')
+    generalData()
+    console.log(props)
   }
 
   render(){
     return (
       <div className="App">
-       test
+        {/*<Header selectCountry={selectCountry}/>
+        <CountryCases countryCases={countryCases}/>*/}
       </div>
     );
   }
