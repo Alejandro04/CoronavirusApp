@@ -1,6 +1,6 @@
   
 import React, { Component }  from 'react';
-import HeaderForm from './CategoryForm'
+import HeaderForm from './HeaderForm'
 import Fragment from 'render-fragment';
 
 export default class Header extends Component {
