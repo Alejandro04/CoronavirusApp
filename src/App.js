@@ -2,31 +2,49 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
-import generalData from './effects/generalData'
+import { loadCountries } from './effects/Countries';
 import { connect } from 'react-redux'
 
 class App extends Component {
-  
-  constructor(props) {
-    super(props)
-    const { generalData } = props
-    generalData()
-    console.log(props)
+
+  componentDidMount(){
+    this.props.loadCountries()
   }
 
-  render(){
+  render() {
+    const { confirmed, recovered, deaths, loading, error, selectCountry } = this.props
+
+    if (loading) {
+      return <div>Loading</div>
+    }
+    if (error) {
+      return <div style={{ color: 'red' }}>ERROR: {this.props.error}</div>
+    }
+
     return (
       <div className="App">
-        {/*<Header selectCountry={selectCountry}/>
-        <CountryCases countryCases={countryCases}/>*/}
+        <Header selectCountry={selectCountry}/>
+        <CountryCases confirmed={confirmed} recovered={recovered} deaths={deaths}/>
       </div>
     );
   }
+
 }
 
-const MapStateToProps = state => state
-
-const MapDispatchToProps = dispatch => ({
-  generalData: payload => dispatch(generalData(payload)),
-})
-export default connect(MapStateToProps, MapDispatchToProps)(App);
+const mapStateToProps = state => {
+  return {
+    confirmed: state.Countries.data.confirmed.value,
+    recovered: state.Countries.data.recovered.value,
+    deaths: state.Countries.data.deaths.value,
+    loading: state.Countries.loading,
+    error: state.Countries.error,
+    selectCountry: 'venezuela'
+  }
+}
+const mapDispatchToProps = {
+  loadCountries
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

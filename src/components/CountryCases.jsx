@@ -5,10 +5,10 @@ import Fragment from 'render-fragment';
 
 export default class CountryCases extends Component {
     render() {
-        const { countryCases } = this.props
+        const { confirmed, recovered, deaths } = this.props
         return (
             <Fragment>
-                <CountryCasesList countryCases={countryCases}/>
+                <CountryCasesList confirmed={confirmed} recovered={recovered} deaths={deaths} />
             </Fragment>
         )
     }

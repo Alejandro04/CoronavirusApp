@@ -8,7 +8,7 @@ export default class Header extends Component {
         const { selectContry } = this.props
         return (
             <Fragment>
-                <h1>Countries</h1>
+                <h3>Countries - {selectContry}</h3>
                 <HeaderForm onSubmit={selectContry}/>
             </Fragment>
         )

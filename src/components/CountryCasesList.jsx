@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import Fragment from 'render-fragment';
 
 export default class CountryCasesList extends Component {
     render() {
-        const { countryCases } = this.props
+        const { confirmed, recovered, deaths } = this.props
         return (
-            <ul>
-                {countryCases.map(x => <li key={x.id}>{x.name}</li>)}
-            </ul>
+            <Fragment>
+                Confirmed: {confirmed} Recovered: {recovered} Deaths: {deaths}
+            </Fragment>
         )
     }
 }
