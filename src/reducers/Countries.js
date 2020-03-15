@@ -18,7 +18,7 @@ const initialState = {
     loading: false,
     error: ''
 };
-export default function reduxThunkReducer(state = initialState, action) {
+export default function reducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_COUNTRIES_LOADING: {
             return {
