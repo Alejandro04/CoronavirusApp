@@ -3,7 +3,17 @@ import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
 import { loadCountries, setCountry } from './effects/Countries';
+import Fragment from 'render-fragment';
 import { connect } from 'react-redux'
+
+//MATERIAL UI
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const timeArea = {
+  textAlign: 'center',
+  margin: 'auto',
+  marginTop: '120px'
+};
 
 class App extends Component {
 
@@ -25,7 +35,7 @@ class App extends Component {
     } = this.props
 
     if (loading) {
-      return <div>Loading</div>
+      return <div style={timeArea}><CircularProgress /></div>
     }
     if (error) {
       return <div style={{ color: 'red' }}>ERROR: {this.props.error}</div>
