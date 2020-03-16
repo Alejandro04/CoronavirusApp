@@ -6,7 +6,7 @@ class HeaderForm extends Component {
         const { handleSubmit } = this.props
         return (
             <form onSubmit={handleSubmit}>
-                <Field name='country' component='input' placeholder='Name of country' />
+                <Field name='country' component='input' placeholder='Name of countrys' />
             </form>
         )
     }
