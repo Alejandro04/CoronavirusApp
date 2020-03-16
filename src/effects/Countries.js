@@ -25,6 +25,6 @@ export const setCountry = (payload) => dispatch => {
         .then(response => response.json())
         .then(
             data => dispatch({ type: SET_COUNTRY_SUCCESS, data }),
-            error => dispatch({ type: SET_COUNTRY_ERROR, error: error.message || 'Unexpected Error!!!' })
+            error => dispatch({ type: SET_COUNTRY_ERROR, error: 'Por favor escriba el país en ingles correctamente' })
         )
  };

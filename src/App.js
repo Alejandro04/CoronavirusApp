@@ -20,7 +20,6 @@ class App extends Component {
   componentDidMount() {
     this.props.loadCountries()
     localStorage.setItem('country', 'venezuela')
-    console.log(this.props)
   }
 
   render() {

@@ -13,7 +13,7 @@ export default class Header extends Component {
         const { setCountry } = this.props
         return (
             <Fragment>
-                <h3>Write the country in English / Escriba el pais en ingles</h3>
+                <h3>Write the country in English / Escriba el país en Ingles</h3>
                 <HeaderForm onSubmit={setCountry}/>
                 <h2 style={title}>Country - <span>{localStorage.getItem('country')}</span></h2>
             </Fragment>
