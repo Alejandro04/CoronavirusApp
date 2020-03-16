@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   render() {
-    const { confirmed, recovered, deaths, loading, error, selectCountry } = this.props
+    const { confirmed, recovered, deaths, loading, error, selectCountry, setCountry } = this.props
 
     if (loading) {
       return <div>Loading</div>
@@ -24,7 +24,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header selectCountry={selectCountry} />
+        <Header selectCountry={selectCountry} setCountry={setCountry} />
         <CountryCases confirmed={confirmed} recovered={recovered} deaths={deaths} />
       </div>
     );
@@ -45,7 +45,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
-  setCountry: country => dispatch(setCountry(country))
+  setCountry: payload => dispatch(setCountry(payload))
 })
 
 export default connect(

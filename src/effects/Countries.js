@@ -19,9 +19,9 @@ export const loadCountries = () => dispatch => {
        )
 };
 
-export const setCountry = (country) => dispatch => {
+export const setCountry = (payload) => dispatch => {
     dispatch({ type: SET_COUNTRY_LOADING });
-    Api.setCountry(country)
+    Api.setCountry(payload)
         .then(response => response.json())
         .then(
             data => dispatch({ type: SET_COUNTRY_SUCCESS, data }),
