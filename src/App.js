@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
-import { loadCountries } from './effects/Countries';
+import { loadCountries, setCountry } from './effects/Countries';
 import { connect } from 'react-redux'
 
 class App extends Component {
 
   componentDidMount(){
     this.props.loadCountries()
+    console.log(this.props)
   }
 
   render() {
@@ -23,8 +24,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header selectCountry={selectCountry}/>
-        <CountryCases confirmed={confirmed} recovered={recovered} deaths={deaths}/>
+        <Header selectCountry={selectCountry} />
+        <CountryCases confirmed={confirmed} recovered={recovered} deaths={deaths} />
       </div>
     );
   }
@@ -41,9 +42,12 @@ const mapStateToProps = state => {
     selectCountry: 'venezuela'
   }
 }
-const mapDispatchToProps = {
-  loadCountries
-};
+
+const mapDispatchToProps = dispatch => ({
+  loadCountries: () => dispatch(loadCountries()),
+  setCountry: country => dispatch(setCountry(country))
+})
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

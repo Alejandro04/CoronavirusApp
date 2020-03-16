@@ -10,10 +10,10 @@ export default class Header extends Component {
     }
 
     render() {
-        const { selectContry } = this.props
+        const { selectCountry } = this.props
         return (
             <Fragment>
-                <h3>Countries - {selectContry}</h3>
+                <h3>Country - {selectCountry}</h3>
                 <HeaderForm onSubmit={this.handleSubmit}/>
             </Fragment>
         )
