@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
 import { loadCountries, setCountry } from './effects/Countries';
-import { getFormValues } from 'redux-form';
 import { connect } from 'react-redux'
 
 class App extends Component {

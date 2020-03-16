@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 let HeaderForm = props => {
     const {
-      country,
       handleSubmit,
     } = props;
     return (
