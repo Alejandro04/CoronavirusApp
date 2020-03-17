@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
-import { loadCountries, setCountry } from './effects/Countries';
-import Fragment from 'render-fragment';
+import { loadCountries, setCountry } from './effects/Countries'
 import { connect } from 'react-redux'
+import VenezuelaCases from './components/venezuelaCases'
 
 //MATERIAL UI
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -44,6 +44,7 @@ class App extends Component {
       <div className="App">
         <Header selectCountry={selectCountry} setCountry={setCountry} />
         <CountryCases confirmed={confirmed} recovered={recovered} deaths={deaths} />
+        <VenezuelaCases />
       </div>
     );
   }
