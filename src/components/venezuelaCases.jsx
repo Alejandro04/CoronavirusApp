@@ -81,7 +81,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                   Aragua 2
+                                   Aragua: 2
                                 </Typography>
                             </CardContent>
                         </Card>
