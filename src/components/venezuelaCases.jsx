@@ -54,7 +54,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 8
+                                    Caracas: 11
                                 </Typography>
                             </CardContent>
                         </Card>
