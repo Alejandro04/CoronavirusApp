@@ -99,7 +99,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                   Cójedes: 1
+                                   Cojedes: 1
                                 </Typography>
                             </CardContent>
                         </Card>
