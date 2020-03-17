@@ -38,7 +38,7 @@ export default class venezuelaCases extends Component {
     render() {
         return (
             <Fragment>
-                <h2>VENEZUELA FOR REGIONS / VENEZUELA POR REGIONES</h2>
+                <h2>VENEZUELA BY REGIONS / VENEZUELA POR REGIONES</h2>
                 <Divider style={divider} />
                 <Grid container spacing={1} style={container}>
                     <Grid item sm={4} xs={12}>
