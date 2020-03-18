@@ -9,12 +9,11 @@ let HeaderForm = props => {
   } = props;
   return (
     <form onSubmit={handleSubmit}>
-       {/*<Field name='countrys' component='input' placeholder='COUNTRY' />*/}
-       <Field name='country' component={CustomAutocomplete} />
+       {/*<Field name='country' component='input' placeholder='COUNTRY' />*/}
+       <Field name='country' component={CustomAutocomplete} type="text" />
     </form>
   );
 };
-
 
 HeaderForm = reduxForm({
   form: 'countryForm',
