@@ -5,11 +5,11 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 export default function CustomAutocomplete() {
   return (
     <Autocomplete
-      id="combo-box-demo"
+      id="country"
       options={countries}
       getOptionLabel={option => option.title}
       style={{ width: 300 }}
-      renderInput={params => <TextField {...params} label="Country / Pais" variant="outlined" />}
+      renderInput={params => <TextField {...params} label="Country / Pais" variant="outlined" name="country" />}
     />
   );
 }

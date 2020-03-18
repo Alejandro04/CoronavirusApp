@@ -10,7 +10,7 @@ let HeaderForm = props => {
   return (
     <form onSubmit={handleSubmit}>
        {/*<Field name='country' component='input' placeholder='COUNTRY' />*/}
-       <Field name='country' component={CustomAutocomplete} type="text" />
+       <Field component={CustomAutocomplete} />
     </form>
   );
 };
@@ -20,9 +20,9 @@ HeaderForm = reduxForm({
 })(HeaderForm);
 
 const selector = formValueSelector('countryForm');
+
 HeaderForm = connect(state => {
-  console.log(state)
-  const country = selector(state, 'country');
+  const country = selector(state, 'country')
   localStorage.setItem('country', country);
   return {
     country
