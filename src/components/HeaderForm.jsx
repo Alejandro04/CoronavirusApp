@@ -1,7 +1,7 @@
 import React from 'react'
 import { reduxForm, Field, formValueSelector } from 'redux-form'
-import { connect } from 'react-redux'
 import CustomAutocomplete from './CustomAutocomplete'
+import { connect } from 'react-redux'
 
 let HeaderForm = props => {
   const {
@@ -9,6 +9,7 @@ let HeaderForm = props => {
   } = props;
   return (
     <form onSubmit={handleSubmit}>
+       {/*<Field name='countrys' component='input' placeholder='COUNTRY' />*/}
        <Field name='country' component={CustomAutocomplete} />
     </form>
   );
@@ -16,13 +17,13 @@ let HeaderForm = props => {
 
 
 HeaderForm = reduxForm({
-  form: 'country',
+  form: 'countryForm',
 })(HeaderForm);
 
-const selector = formValueSelector('country');
+const selector = formValueSelector('countryForm');
 HeaderForm = connect(state => {
-  const country = selector(state, 'country');
   console.log(state)
+  const country = selector(state, 'country');
   localStorage.setItem('country', country);
   return {
     country

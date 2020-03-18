@@ -16,4 +16,5 @@ export default function CustomAutocomplete() {
 
 const countries = [
   { title: 'Venezuela'},
+  { title: 'Colombia'},
 ];

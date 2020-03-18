@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Fragment from 'render-fragment';
 
-// MAERIAL UI
+// MATERIAL UI
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
