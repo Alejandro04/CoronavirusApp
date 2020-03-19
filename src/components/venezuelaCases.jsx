@@ -45,7 +45,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                   Miranda: 17
+                                   Miranda: 20
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -54,7 +54,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 11
+                                    Caracas: 8
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -64,15 +64,6 @@ export default class venezuelaCases extends Component {
                             <CardContent>
                                 <Typography style={textMedium}>
                                     La Guaira: 5
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                   Zulia: 2
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -118,6 +109,24 @@ export default class venezuelaCases extends Component {
                             <CardContent>
                                 <Typography style={textLow}>
                                    Apure: 1
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                   Zulia: 1
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                   Sin ubicación: 1
                                 </Typography>
                             </CardContent>
                         </Card>
