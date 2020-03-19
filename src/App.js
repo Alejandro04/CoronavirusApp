@@ -52,12 +52,22 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    confirmed: state.Countries.data.confirmed.value,
-    recovered: state.Countries.data.recovered.value,
-    deaths: state.Countries.data.deaths.value,
-    loading: state.Countries.loading,
-    error: state.Countries.error
+  if(state.Countries.data.error){
+    return {
+      confirmed: 0,
+      recovered: 0,
+      deaths: 0,
+      loading: state.Countries.loading,
+      error: state.Countries.error
+    }
+  }else{
+    return {
+      confirmed: state.Countries.data.confirmed.value,
+      recovered: state.Countries.data.recovered.value,
+      deaths: state.Countries.data.deaths.value,
+      loading: state.Countries.loading,
+      error: state.Countries.error
+    }
   }
 }
 
