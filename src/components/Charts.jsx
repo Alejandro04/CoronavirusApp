@@ -4,7 +4,7 @@ import Fragment from 'render-fragment';
 
 export default class Charts extends Component {
     render() {
-        const { charts } = this.props
+        const { chartsConfirmed, chartsRecovered, chartsDeath } = this.props
         return (
             <Fragment>
                 Charts2

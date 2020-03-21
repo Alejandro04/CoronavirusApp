@@ -32,7 +32,7 @@ export default class Api {
         });
     }
 
-    static setCountryChartDeaths(payload) {
+    static setCountryChartDeath(payload) {
         const uri = API_BASE_ADDRESS_CHARTDATA_CONFIRMED + `${payload.country}/status/deaths`;
         return fetch(uri, {
             method: 'GET'
