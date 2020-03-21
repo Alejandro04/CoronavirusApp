@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Fragment from 'render-fragment';
 
-// MATERIAL UI
+// MAERIAL UI
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -38,14 +38,13 @@ export default class venezuelaCases extends Component {
     render() {
         return (
             <Fragment>
-                <h2>VENEZUELA BY REGIONS / VENEZUELA POR REGIONES</h2>
                 <Divider style={divider} />
                 <Grid container spacing={1} style={container}>
                     <Grid item sm={4} xs={12}>
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                   Miranda: 20
+                                   Miranda: 13
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -54,7 +53,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 8
+                                    Caracas: 11
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -109,24 +108,6 @@ export default class venezuelaCases extends Component {
                             <CardContent>
                                 <Typography style={textLow}>
                                    Apure: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                   Zulia: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                   Sin ubicación: 1
                                 </Typography>
                             </CardContent>
                         </Card>
