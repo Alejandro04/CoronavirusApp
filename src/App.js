@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
+import Charts from './components/Charts'
 import { loadCountries, setCountry } from './effects/Countries'
-import { setCountryChartConfirmed } from './effects/Charts'
+import { setCountryChartConfirmed, setCountryChartRecovered } from './effects/Charts'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
 
@@ -66,6 +67,18 @@ class App extends Component {
             <VenezuelaCases />
           </ExpansionPanelDetails>
         </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>Gráfico: Casos diarios por País</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Charts charts={charts} />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
         <div className="App" style={appContainer}>
           <Header selectCountry={selectCountry} setCountry={setCountry} />
           <CountryCases confirmed={confirmed} recovered={recovered} deaths={deaths} />
@@ -103,6 +116,7 @@ const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
   setCountry: payload => dispatch(setCountry(payload)),
   setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
+  setCountryChartRecovered: payload => dispatch(setCountryChartRecovered(payload)),
 })
 
 export default connect(

@@ -1,2 +1,3 @@
 export { default as Countries } from './Countries'
-export { default as Charts } from './Charts'
+export { default as ChartsConfirmed } from './ChartsConfirmed'
+export { default as ChartsRecovered } from './ChartsRecovered'

@@ -13,6 +13,10 @@ export const SET_COUNTRY_CHART_CONFIRMED_LOADING = 'SET_COUNTRY_CHART_CONFIRMED_
 export const SET_COUNTRY_CHART_CONFIRMED_SUCCESS = 'SET_COUNTRY_CHART_CONFIRMED_SUCCESS'
 export const SET_COUNTRY_CHART_CONFIRMED_ERROR = 'SET_COUNTRY_CHART_CONFIRMED_ERROR'
 
+export const SET_COUNTRY_CHART_RECOVERED_LOADING = 'SET_COUNTRY_CHART_RECOVERED_LOADING'
+export const SET_COUNTRY_CHART_RECOVERED_SUCCESS = 'SET_COUNTRY_CHART_RECOVERED_SUCCESS'
+export const SET_COUNTRY_CHART_RECOVERED_ERROR = 'SET_COUNTRY_CHART_RECOVERED_ERROR'
+
 export const loadCountries = () => dispatch => {
     dispatch({ type: LOAD_COUNTRIES_LOADING });
     Api.getCountries()
@@ -24,6 +28,7 @@ export const loadCountries = () => dispatch => {
 };
 
 export const setCountry = (payload) => dispatch => {
+
     dispatch({ type: SET_COUNTRY_LOADING });
     Api.setCountry(payload)
         .then(response => response.json())
@@ -31,14 +36,21 @@ export const setCountry = (payload) => dispatch => {
             data => dispatch({ type: SET_COUNTRY_SUCCESS, data }),
             error => dispatch({ type: SET_COUNTRY_ERROR, error: 'Error en el servicio' })
         )
-};
 
-export const setCountryChartConfirmed = (payload) => dispatch => {
-    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_LOADING });
+    /* ESTO ME AYUDA A REUSAR EL MISMO REDUXFORM, UNA SOLA ACCIÓN DEL USUARIO QUE EJECUTE EL DISPATCH*/
+    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS });
     Api.setCountryChartConfirmed(payload)
         .then(response => response.json())
         .then(
             data => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS, data }),
             error => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_ERROR, error: 'Error en el servicio' })
+        )
+
+    dispatch({ type: SET_COUNTRY_CHART_RECOVERED_LOADING });
+    Api.setCountryChartRecovered(payload)
+        .then(response => response.json())
+        .then(
+            data => dispatch({ type: SET_COUNTRY_CHART_RECOVERED_SUCCESS, data }),
+            error => dispatch({ type: SET_COUNTRY_CHART_RECOVERED_ERROR, error: 'Error en el servicio' })
         )
 };
