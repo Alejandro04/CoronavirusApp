@@ -15,7 +15,7 @@ const container = {
 const card = {
     border: 0,
     borderRadius: '16px',
-    padding: '40px',
+    padding: '10px',
 };
 const textLow = {
     fontSize: '2em',
