@@ -3,12 +3,12 @@ import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
 import { loadCountries, setCountry } from './effects/Countries'
+import { setCountryChartConfirmed } from './effects/Charts'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
 
 //MATERIAL UI
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.loadCountries()
-    localStorage.setItem('country', 'venezuela')
+    localStorage.setItem('country', 'Venezuela')
   }
 
   render() {
@@ -41,7 +41,8 @@ class App extends Component {
       loading,
       error,
       selectCountry,
-      setCountry
+      setCountry,
+      charts
     } = this.props
 
     if (loading) {
@@ -76,13 +77,15 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
       recovered: 0,
       deaths: 0,
       loading: state.Countries.loading,
-      error: state.Countries.error
+      error: state.Countries.error,
+      charts: ''
     }
   } else {
     return {
@@ -90,7 +93,8 @@ const mapStateToProps = state => {
       recovered: state.Countries.data.recovered.value,
       deaths: state.Countries.data.deaths.value,
       loading: state.Countries.loading,
-      error: state.Countries.error
+      error: state.Countries.error,
+      charts: state.Charts
     }
   }
 }
@@ -98,6 +102,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
   setCountry: payload => dispatch(setCountry(payload)),
+  setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
 })
 
 export default connect(

@@ -18,6 +18,7 @@ export default class Api {
    }
 
    static setCountryChartConfirmed(payload) {
+    console.log("ok")
     const uri = API_BASE_ADDRESS_CHARTDATA_CONFIRMED + `${payload.country}/status/confirmed`;
     return fetch(uri, {
         method: 'GET'

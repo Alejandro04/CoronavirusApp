@@ -3,10 +3,7 @@ import { LOAD_COUNTRIES_ERROR,
     LOAD_COUNTRIES_SUCCESS,
     SET_COUNTRY_LOADING,
     SET_COUNTRY_SUCCESS,
-    SET_COUNTRY_ERROR,
-    SET_COUNTRY_CHART_CONFIRMED_LOADING,
-    SET_COUNTRY_CHART_CONFIRMED_SUCCESS,
-    SET_COUNTRY_CHART_CONFIRMED_ERROR
+    SET_COUNTRY_ERROR
  } from "../effects/Countries";
 
 const initialState = {
@@ -65,27 +62,6 @@ export default function reducer(state = initialState, action) {
             }
         }
         case SET_COUNTRY_ERROR: {
-            return {
-                ...state,
-                loading: false,
-                error: action.error,
-            };
-        }
-        case SET_COUNTRY_CHART_CONFIRMED_LOADING: {
-            return {
-                ...state,
-                loading: true,
-                error: ''
-            };
-        }
-        case SET_COUNTRY_CHART_CONFIRMED_SUCCESS: {
-            return {
-                ...state,
-                data: action.data,
-                loading: false
-            }
-        }
-        case SET_COUNTRY_CHART_CONFIRMED_ERROR: {
             return {
                 ...state,
                 loading: false,
