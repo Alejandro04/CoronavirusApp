@@ -35,7 +35,9 @@ const divider = {
 
 const title = {
     fontSize: '20px',
-    margin: 'auto'
+    margin: 'auto',
+    textAlign: 'center',
+    marginBottom: '10px'
 }
 
 
