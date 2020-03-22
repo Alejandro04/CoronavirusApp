@@ -33,6 +33,13 @@ const divider = {
     marginTop: '20px'
 }
 
+const title = {
+    fontSize: '20px',
+    margin: 'auto',
+    textAlign: 'center',
+    marginBottom: '10px'
+}
+
 
 export default class venezuelaCases extends Component {
     render() {
@@ -40,11 +47,14 @@ export default class venezuelaCases extends Component {
             <Fragment>
                 <Divider style={divider} />
                 <Grid container spacing={1} style={container}>
+                    <Typography style={title}>
+                        FALTAN ACTUALIZAR ALGUNOS REPORTES YA QUE LA INFORMACIÓN DADA POR LOS ENTES NO ES EXACTA.
+                    </Typography>
                     <Grid item sm={4} xs={12}>
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                   Miranda: 13
+                                    Miranda: 24
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -53,7 +63,16 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 11
+                                    La Guaira: 9
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textDanger}>
+                                    Caracas: 9
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -62,7 +81,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textMedium}>
-                                    La Guaira: 5
+                                    Aragua: 6
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -71,7 +90,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                   Anzoátegui: 2
+                                    Anzoátegui: 2
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -80,7 +99,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                   Aragua: 2
+                                    Falcón: 2
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -98,7 +117,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                   Cojedes: 1
+                                    Cojedes: 1
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -107,7 +126,43 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                   Apure: 1
+                                    Apure: 1
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                    Zulia: 1
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                    Monagas: 1
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                    Lara: 1
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                    Dependencias Federales: 2
                                 </Typography>
                             </CardContent>
                         </Card>
