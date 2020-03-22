@@ -1,24 +1,10 @@
-
 import React, { PureComponent } from 'react';
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import Fragment from 'render-fragment';
 
-const data = [
-    {
-        name: 'Dia 1', confirmed: 2, recovered: 0, death: 0,
-    },
-    {
-        name: 'Dia 2', confirmed: 8, recovered: 1, death: 0,
-    },
-    {
-        name: 'Dia 3', confirmed: 15, recovered: 5, death: 0,
-    },
-    {
-        name: 'Dia 4', confirmed: 20, recovered: 8, death: 0,
-    }
-];
+let data = [];
 
 const chartStyle = {
     margin: 'auto'
@@ -27,6 +13,23 @@ const chartStyle = {
 export default class Charts extends PureComponent {
 
     render() {
+
+        const { chartsConfirmed, chartsRecovered, chartsDeath } = this.props
+        console.log(chartsConfirmed)
+
+        // si el registro del país no existen en el api
+        if (chartsConfirmed !== undefined) {
+            // si el registro de datos confirmados no llega en esa petición
+            if (chartsConfirmed.data !== undefined) {
+                chartsConfirmed.data.forEach(element => {
+                    console.log(element)
+                    data.push({
+                        name: element.Date, confirmed: element.Cases
+                    })
+                });
+            }
+        }
+
         return (
             <Fragment>
                 <LineChart
@@ -44,8 +47,6 @@ export default class Charts extends PureComponent {
                     <Tooltip />
                     <Legend />
                     <Line type="monotone" dataKey="confirmed" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="recovered" stroke="#82ca9d" />
-                    <Line type="monotone" dataKey="death" stroke="red" />
                 </LineChart>
             </Fragment>
         );

@@ -92,7 +92,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
+  //console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
