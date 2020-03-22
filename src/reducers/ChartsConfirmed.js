@@ -2,7 +2,7 @@ import {
     SET_COUNTRY_CHART_CONFIRMED_LOADING,
     SET_COUNTRY_CHART_CONFIRMED_SUCCESS,
     SET_COUNTRY_CHART_CONFIRMED_ERROR,
-} from "../effects/Charts";
+} from "../effects/Countries";
 
 const initialState = {
     data: [],

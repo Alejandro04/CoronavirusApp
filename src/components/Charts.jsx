@@ -14,7 +14,7 @@ export default class Charts extends PureComponent {
 
     render() {
 
-        const { chartsConfirmed, chartsRecovered, chartsDeath } = this.props
+        const { chartsConfirmed } = this.props
         console.log(chartsConfirmed)
 
         // si el registro del país no existen en el api
@@ -22,7 +22,7 @@ export default class Charts extends PureComponent {
             // si el registro de datos confirmados no llega en esa petición
             if (chartsConfirmed.data !== undefined) {
                 chartsConfirmed.data.forEach(element => {
-                    console.log(element)
+                  //  console.log(element)
                     data.push({
                         name: element.Date, confirmed: element.Cases
                     })

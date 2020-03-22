@@ -3,8 +3,7 @@ import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
 import Charts from './components/Charts'
-import { loadCountries, setCountry } from './effects/Countries'
-import { setCountryChartConfirmed, setCountryChartRecovered, setCountryChartDeath } from './effects/Charts'
+import { loadCountries, setCountry, setCountryChartConfirmed } from './effects/Countries'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
 
@@ -44,8 +43,6 @@ class App extends Component {
       selectCountry,
       setCountry,
       chartsConfirmed,
-      chartsRecovered,
-      chartsDeath
     } = this.props
 
     if (loading) {
@@ -78,7 +75,7 @@ class App extends Component {
             <Typography>Gráfico: Casos diarios por País</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Charts chartsConfirmed={chartsConfirmed} chartsRecovered={chartsRecovered} chartsDeath={chartsDeath} />
+            <Charts chartsConfirmed={chartsConfirmed} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <div className="App" style={appContainer}>
@@ -92,7 +89,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  //console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
@@ -101,8 +97,6 @@ const mapStateToProps = state => {
       loading: state.Countries.loading,
       error: state.Countries.error,
       ChartsConfirmed: '',
-      ChartsRecovered: '',
-      ChartsDeath: ''
     }
   } else {
     return {
@@ -112,8 +106,6 @@ const mapStateToProps = state => {
       loading: state.Countries.loading,
       error: state.Countries.error,
       chartsConfirmed: state.ChartsConfirmed,
-      chartsRecovered: state.ChartsRecovered,
-      chartsDeath: state.ChartsDeath
     }
   }
 }
@@ -121,9 +113,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
   setCountry: payload => dispatch(setCountry(payload)),
-  setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
-  setCountryChartRecovered: payload => dispatch(setCountryChartRecovered(payload)),
-  setCountryChartDeath: payload => dispatch(setCountryChartDeath(payload)),
 })
 
 export default connect(
