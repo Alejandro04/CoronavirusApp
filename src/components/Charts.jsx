@@ -35,19 +35,21 @@ export default class Charts extends PureComponent {
 
         // si el registro del país no existen en el api
         // // si el registro de datos confirmados no llega en esa petición
-        if (chartsConfirmed !== undefined && chartsConfirmed.data !== undefined) {
-            let cases = []
-            let country = ''
-            chartsConfirmed.data.forEach(element => {
-                cases.push({
-                    name: element.Date.substr(0,10), confirmed: element.Cases
-                })
-                country = element.Country
-            });
-            this.setState({
-                data: cases,
-                country
-            });
+        if (chartsConfirmed !== undefined) {
+            if (chartsConfirmed.data !== undefined) {
+                let cases = []
+                let country = ''
+                chartsConfirmed.data.forEach(element => {
+                    cases.push({
+                        name: element.Date.substr(0, 10), confirmed: element.Cases
+                    })
+                    country = element.Country
+                });
+                this.setState({
+                    data: cases,
+                    country
+                });
+            }
         }
     }
 
@@ -68,7 +70,7 @@ export default class Charts extends PureComponent {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Legend style={leyend}/>
+                    <Legend style={leyend} />
                     <Line type="monotone" dataKey="confirmed" stroke="#8884d8" activeDot={{ r: 8 }} />
                 </LineChart>
             </Fragment>
