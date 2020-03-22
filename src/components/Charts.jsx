@@ -8,8 +8,8 @@ const chartStyle = {
     margin: 'auto'
 }
 
-const chartStyleCard = {
-    width: '100%'
+const leyend = {
+    marginTop: '20px'
 }
 
 export default class Charts extends PureComponent {
@@ -31,7 +31,7 @@ export default class Charts extends PureComponent {
             let cases = []
             chartsConfirmed.data.forEach(element => {
                 cases.push({
-                    name: element.Date, confirmed: element.Cases
+                    name: element.Date.substr(0,10), confirmed: element.Cases
                 })
             });
             this.setState({
@@ -48,7 +48,7 @@ export default class Charts extends PureComponent {
                     height={300}
                     data={this.state.data}
                     margin={{
-                        top: 5, right: 30, left: 20, bottom: 5,
+                        top: 5, right: 30, left: 20, bottom: 20,
                     }}
                     style={chartStyle}
                 >
@@ -56,7 +56,7 @@ export default class Charts extends PureComponent {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
+                    <Legend style={leyend}/>
                     <Line type="monotone" dataKey="confirmed" stroke="#8884d8" activeDot={{ r: 8 }} />
                 </LineChart>
             </Fragment>

@@ -60,7 +60,7 @@ class App extends Component {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Specific cases for Venezuela / Casos específicos para Venezuela</Typography>
+            <Typography>Casos específicos para Venezuela / Specific cases for Venezuela </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases />
@@ -72,7 +72,8 @@ class App extends Component {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Gráfico: Casos diarios por País</Typography>
+            <Typography>Gráfico: Casos diarios detectados por País /
+Graph: Daily Cases Detected by Country</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Charts chartsConfirmed={chartsConfirmed} />

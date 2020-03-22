@@ -40,3 +40,7 @@
 .MuiAutocomplete-root{
   margin: auto;
 }
+
+.recharts-default-legend{
+  display: none;
+}
