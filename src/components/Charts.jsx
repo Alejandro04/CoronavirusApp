@@ -4,38 +4,49 @@ import {
 } from 'recharts';
 import Fragment from 'render-fragment';
 
-let data = [];
-
 const chartStyle = {
     margin: 'auto'
 }
 
+const chartStyleCard = {
+    width: '100%'
+}
+
 export default class Charts extends PureComponent {
 
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
 
+    componentDidMount() {
         const { chartsConfirmed } = this.props
         console.log(chartsConfirmed)
 
         // si el registro del país no existen en el api
-        if (chartsConfirmed !== undefined) {
-            // si el registro de datos confirmados no llega en esa petición
-            if (chartsConfirmed.data !== undefined) {
-                chartsConfirmed.data.forEach(element => {
-                  //  console.log(element)
-                    data.push({
-                        name: element.Date, confirmed: element.Cases
-                    })
-                });
-            }
+        // // si el registro de datos confirmados no llega en esa petición
+        if (chartsConfirmed !== undefined && chartsConfirmed.data !== undefined) {
+            let cases = []
+            chartsConfirmed.data.forEach(element => {
+                cases.push({
+                    name: element.Date, confirmed: element.Cases
+                })
+            });
+            this.setState({
+                data: cases
+            });
         }
+    }
 
+    render() {
         return (
             <Fragment>
                 <LineChart
-                    width={500}
+                    width={700}
                     height={300}
-                    data={data}
+                    data={this.state.data}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,
                     }}
