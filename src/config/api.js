@@ -4,7 +4,7 @@ const API_BASE_ADDRESS_CHARTDATA_CONFIRMED = 'https://api.covid19api.com/dayone/
 export default class Api {
 
     static getCountries() {
-        const uri = API_BASE_ADDRESS_GENERALDATA + "venezuela";
+        const uri = API_BASE_ADDRESS_GENERALDATA + "noncountry";
         return fetch(uri, {
             method: 'GET'
         });
