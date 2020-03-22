@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.loadCountries()
-    localStorage.setItem('country', 'venezuela')
+    localStorage.setItem('country', 'Venezuela')
   }
 
   render() {
@@ -72,8 +72,8 @@ class App extends Component {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Gráfico: Casos diarios detectados por País /
-Graph: Daily Cases Detected by Country</Typography>
+            <Typography>Gráfico: Casos diarios detectados en  {localStorage.getItem('country')} /
+            Graph: Daily cases detected in {localStorage.getItem('country')}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Charts chartsConfirmed={chartsConfirmed} />
