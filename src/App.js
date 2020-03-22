@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
-import { loadCountries, setCountry } from './effects/Countries'
+import Charts from './components/Charts'
+import { loadCountries, setCountry, setCountryChartConfirmed } from './effects/Countries'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
 
 //MATERIAL UI
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.loadCountries()
-    localStorage.setItem('country', 'venezuela')
+    localStorage.setItem('country', 'Venezuela')
   }
 
   render() {
@@ -41,7 +41,8 @@ class App extends Component {
       loading,
       error,
       selectCountry,
-      setCountry
+      setCountry,
+      chartsConfirmed,
     } = this.props
 
     if (loading) {
@@ -59,10 +60,23 @@ class App extends Component {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Specific cases for Venezuela / Casos específicos para Venezuela</Typography>
+            <Typography>Casos específicos para Venezuela / Specific cases for Venezuela </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>Gráfico: Casos diarios detectados en  {localStorage.getItem('country')} /
+            Graph: Daily cases detected in {localStorage.getItem('country')}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Charts chartsConfirmed={chartsConfirmed} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <div className="App" style={appContainer}>
@@ -82,7 +96,8 @@ const mapStateToProps = state => {
       recovered: 0,
       deaths: 0,
       loading: state.Countries.loading,
-      error: state.Countries.error
+      error: state.Countries.error,
+      ChartsConfirmed: '',
     }
   } else {
     return {
@@ -90,7 +105,8 @@ const mapStateToProps = state => {
       recovered: state.Countries.data.recovered.value,
       deaths: state.Countries.data.deaths.value,
       loading: state.Countries.loading,
-      error: state.Countries.error
+      error: state.Countries.error,
+      chartsConfirmed: state.ChartsConfirmed,
     }
   }
 }

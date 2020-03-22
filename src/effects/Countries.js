@@ -9,22 +9,48 @@ export const SET_COUNTRY_LOADING = 'SET_COUNTRY_LOADING'
 export const SET_COUNTRY_SUCCESS = 'SET_COUNTRY_SUCCESS'
 export const SET_COUNTRY_ERROR = 'SET_COUNTRY_ERROR'
 
+export const SET_COUNTRY_CHART_CONFIRMED_LOADING = 'SET_COUNTRY_CHART_CONFIRMED_LOADING'
+export const SET_COUNTRY_CHART_CONFIRMED_SUCCESS = 'SET_COUNTRY_CHART_CONFIRMED_SUCCESS'
+export const SET_COUNTRY_CHART_CONFIRMED_ERROR = 'SET_COUNTRY_CHART_CONFIRMED_ERROR'
+
+
 export const loadCountries = () => dispatch => {
-   dispatch({ type: LOAD_COUNTRIES_LOADING });
-   Api.getCountries()
-       .then(response => response.json())
-       .then(
-           data => dispatch({ type: LOAD_COUNTRIES_SUCCESS, data }),
-           error => dispatch({ type: LOAD_COUNTRIES_ERROR, error: error.message || 'Unexpected Error!!!' })
-       )
+    dispatch({ type: LOAD_COUNTRIES_LOADING });
+    Api.getCountries()
+        .then(response => response.json())
+        .then(
+            data => dispatch({ type: LOAD_COUNTRIES_SUCCESS, data }),
+            error => dispatch({ type: LOAD_COUNTRIES_ERROR, error: error.message || 'Unexpected Error!!!' })
+        )
 };
 
 export const setCountry = (payload) => dispatch => {
+
     dispatch({ type: SET_COUNTRY_LOADING });
     Api.setCountry(payload)
         .then(response => response.json())
         .then(
             data => dispatch({ type: SET_COUNTRY_SUCCESS, data }),
-            error => dispatch({ type: SET_COUNTRY_ERROR, error: 'Por favor escriba el país en ingles correctamente' })
+            error => dispatch({ type: SET_COUNTRY_ERROR, error: 'Error en el servicio' })
         )
- };
+
+    /* ESTO ME AYUDA A REUSAR EL MISMO REDUXFORM, UNA SOLA ACCIÓN DEL USUARIO QUE EJECUTE EL DISPATCH */
+    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS });
+    Api.setCountryChartConfirmed(payload)
+        .then(response => response.json())
+        .then(
+            data => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS, data }),
+            error => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_ERROR, error: 'Error en el servicio' })
+        )
+};
+
+export const setCountryChartConfirmed = (payload) => dispatch => {
+
+    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS });
+    Api.setCountryChartConfirmed(payload)
+        .then(response => response.json())
+        .then(
+            data => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS, data }),
+            error => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_ERROR, error: 'Error en el servicio' })
+        )
+};
