@@ -7,7 +7,8 @@ import Fragment from 'render-fragment';
 
 const chartStyle = {
     margin: 'auto',
-    marginTop: '60px'
+    marginTop: '60px',
+    padding: '40px'
 }
 
 const leyend = {
@@ -62,7 +63,7 @@ export default class Charts extends PureComponent {
                     height={300}
                     data={this.state.data}
                     margin={{
-                        top: 5, right: 0, left: 0, bottom: 0,
+                        top: 5, right: 10, left: 10, bottom: 0,
                     }}
                     style={chartStyle}
                 >
