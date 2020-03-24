@@ -28,7 +28,18 @@ const appContainer = {
   marginTop: '40px'
 }
 
-const title = {
+const titleConfirm = {
+  fontSize: '16px',
+  margin: 'auto',
+  background: 'green',
+  color: 'white',
+  padding: '8px',
+  borderRadius: '20px',
+  marginRight: '0',
+  textAlign: 'center'
+}
+
+const titleNoConfirm = {
   fontSize: '16px',
   margin: 'auto',
   background: 'orange',
@@ -92,7 +103,7 @@ class App extends Component {
             id="panel2a-header"
           >
             <Typography>Casos específicos para Venezuela</Typography>
-            <Typography style={title}>Sin Confirmar</Typography>
+            <Typography style={titleConfirm}>Actualizado: 24/05/2020 04:00pm</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases />
@@ -105,7 +116,6 @@ class App extends Component {
             id="panel1a-header"
           >
             <Typography>Gráfico: Casos diarios detectados por país seleccionado</Typography>
-            <Typography style={title}>En Desarrollo</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Grid>
