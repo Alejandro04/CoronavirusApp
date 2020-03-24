@@ -30,38 +30,25 @@ export default class Charts extends PureComponent {
         };
     }
 
-    componentDidMount() {
+    render() {
         const { chartsConfirmed } = this.props
-        console.log(chartsConfirmed)
-
-        // si el registro del país no existen en el api
-        // // si el registro de datos confirmados no llega en esa petición
+        let cases = []
         if (chartsConfirmed !== undefined) {
             if (chartsConfirmed.data !== undefined) {
-                let cases = []
-                let country = ''
                 chartsConfirmed.data.forEach(element => {
                     cases.push({
                         name: element.Date.substr(0, 10), confirmed: element.Cases
                     })
-                    country = element.Country
-                });
-                this.setState({
-                    data: cases,
-                    country
                 });
             }
         }
-    }
-
-    render() {
         return (
             <Fragment>
-                <Typography style={title}>País / Country: {this.state.country}</Typography>
+                <Typography style={title}>País: {localStorage.getItem('country')}</Typography>
                 <LineChart
                     width={700}
                     height={300}
-                    data={this.state.data}
+                    data={cases}
                     margin={{
                         top: 5, right: 10, left: 10, bottom: 0,
                     }}

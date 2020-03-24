@@ -14,6 +14,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
 
 const timeArea = {
   textAlign: 'center',
@@ -40,11 +41,17 @@ const title = {
 class App extends Component {
 
   componentDidMount() {
-    this.props.loadCountries()
-    localStorage.setItem('country', 'Seleccione..')
+    localStorage.setItem('country', 'Seleccione...')
   }
 
   render() {
+
+    const handleGraphic = () => {
+      let country = localStorage.getItem('country')
+      this.props.setCountryChartConfirmed(country)
+    };
+
+
     const {
       confirmed,
       recovered,
@@ -53,7 +60,7 @@ class App extends Component {
       error,
       selectCountry,
       setCountry,
-      chartsConfirmed,
+      chartsConfirmed
     } = this.props
 
     if (loading) {
@@ -88,6 +95,7 @@ class App extends Component {
             <Typography style={title}>En Desarrollo</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
+            <Button variant="contained" color="primary" onClick={handleGraphic}>Actualizar Mapa</Button>
             <Charts chartsConfirmed={chartsConfirmed} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -102,6 +110,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
@@ -126,6 +135,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
   setCountry: payload => dispatch(setCountry(payload)),
+  setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
 })
 
 export default connect(
