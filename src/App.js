@@ -84,7 +84,7 @@ class App extends Component {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Gráfico: Casos diarios detectados en  {localStorage.getItem('country')}</Typography>
+            <Typography>Gráfico: Casos diarios detectados por país seleccionado</Typography>
             <Typography style={title}>En Desarrollo</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
