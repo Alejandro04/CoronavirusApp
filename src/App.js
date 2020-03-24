@@ -31,7 +31,7 @@ const title = {
   margin: 'auto',
   background: 'orange',
   color: 'white',
-  padding: '6px',
+  padding: '8px',
   borderRadius: '20px',
   marginRight: '0',
   textAlign: 'center'
