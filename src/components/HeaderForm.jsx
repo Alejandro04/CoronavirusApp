@@ -306,7 +306,7 @@ HeaderForm = connect(state => {
   }else{
     let country = localStorage.getItem('country')
     return {
-      country: 'china'
+      country
     };
   }
 })(HeaderForm);
