@@ -174,15 +174,6 @@ export default class venezuelaCases extends Component {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Táchira: 1 (Sin confirmar)
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
                 </Grid>
                 <Divider style={divider} />
             </Fragment>
