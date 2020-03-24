@@ -23,7 +23,7 @@ let HeaderForm = props => {
       {/*<Field name='country' component='input' placeholder='COUNTRY' />*/}
       {/*<Field component={CustomAutocomplete}  name="country"/>*/}
       <Field name="country" component="select" style={select}>
-        <option value="">Country / País</option>
+        <option value="">País</option>
         {countries.map((country, index) => (
           <option value={country} key={index}>{country}</option>
         ))}

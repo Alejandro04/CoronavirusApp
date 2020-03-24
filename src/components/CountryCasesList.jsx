@@ -44,7 +44,7 @@ export default class CountryCasesList extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textConfirmed}>
-                                    Confirmed: {confirmed}
+                                    Confirmados: {confirmed}
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -53,7 +53,7 @@ export default class CountryCasesList extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textRecovered}>
-                                    Recovered: {recovered}
+                                    Recuperados: {recovered}
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -62,7 +62,7 @@ export default class CountryCasesList extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDeath}>
-                                    Deaths: {deaths}
+                                    Muertes: {deaths}
                                 </Typography>
                             </CardContent>
                         </Card>

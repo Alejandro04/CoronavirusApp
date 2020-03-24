@@ -8,14 +8,18 @@ const title = {
     color: 'rgb(25, 118, 210)'
 }
 
+const selectTitle = {
+    marginRight: '20px'
+}
+
 export default class Header extends Component {
     render() {
         const { setCountry } = this.props
         return (
             <Fragment>
-                <h3>Select the Country / Seleccione el País</h3>
+                <h3 style={selectTitle}>Seleccione el País</h3>
                 <HeaderForm onSubmit={setCountry}/>
-                <h2 style={title}>Country - <span>{localStorage.getItem('country')}</span></h2>
+                <h2 style={title}>País - <span>{localStorage.getItem('country')}</span></h2>
             </Fragment>
         )
     }
