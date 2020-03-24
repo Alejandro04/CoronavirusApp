@@ -9,7 +9,7 @@ const title = {
 }
 
 const selectTitle = {
-    marginRight: '20px'
+    marginRight: '16px'
 }
 
 export default class Header extends Component {
