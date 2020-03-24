@@ -54,7 +54,11 @@ const buttonStyle = {
   margin: 'auto',
   padding: '15px',
   fontSize: '20px',
-  marginLeft: '60px'
+}
+
+const venezuelaTitle = {
+  position: 'relative',
+  top: '10px'
 }
 
 class App extends Component {
@@ -102,7 +106,7 @@ class App extends Component {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>Casos específicos para Venezuela</Typography>
+            <Typography style={venezuelaTitle}>Casos específicos para Venezuela</Typography>
             <Typography style={titleConfirm}>Actualizado: 24/05/2020 04:00pm</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
