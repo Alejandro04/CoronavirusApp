@@ -33,14 +33,6 @@ const divider = {
     marginTop: '20px'
 }
 
-const title = {
-    fontSize: '20px',
-    margin: 'auto',
-    textAlign: 'center',
-    marginBottom: '10px'
-}
-
-
 export default class venezuelaCases extends Component {
     render() {
         return (
@@ -51,7 +43,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Miranda: 30
+                                    Miranda: 38
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -60,16 +52,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 19
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textDanger}>
-                                    La Guaira: 8
+                                    Caracas: 12
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -78,7 +61,25 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textMedium}>
-                                    Aragua: 6
+                                    La Guaira: 9
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textMedium}>
+                                    Aragua: 9
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                    Barinas: 3
                                 </Typography>
                             </CardContent>
                         </Card>

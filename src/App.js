@@ -26,6 +26,17 @@ const appContainer = {
   marginTop: '40px'
 }
 
+const title = {
+  fontSize: '16px',
+  margin: 'auto',
+  background: 'orange',
+  color: 'white',
+  padding: '6px',
+  borderRadius: '20px',
+  marginRight: '0',
+  textAlign: 'center'
+}
+
 class App extends Component {
 
   componentDidMount() {
@@ -61,6 +72,7 @@ class App extends Component {
             id="panel2a-header"
           >
             <Typography>Casos específicos para Venezuela / Specific cases for Venezuela </Typography>
+            <Typography style={title}>Sin Confirmar</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases />
@@ -74,6 +86,7 @@ class App extends Component {
           >
             <Typography>Gráfico: Casos diarios detectados en  {localStorage.getItem('country')} /
             Graph: Daily cases detected in {localStorage.getItem('country')}</Typography>
+            <Typography style={title}>En Desarrollo</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Charts chartsConfirmed={chartsConfirmed} />
