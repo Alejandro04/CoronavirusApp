@@ -8,28 +8,13 @@ import Fragment from 'render-fragment';
 const chartStyle = {
     margin: 'auto',
     marginTop: '60px',
-    padding: '40px'
 }
 
 const leyend = {
     marginTop: '20px'
 }
 
-const title = {
-    position: 'absolute',
-    color: 'rgb(25, 118, 210)'
-}
-
 export default class Charts extends PureComponent {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            country: ''
-        };
-    }
-
     render() {
         const { chartsConfirmed } = this.props
         let cases = []
@@ -44,13 +29,12 @@ export default class Charts extends PureComponent {
         }
         return (
             <Fragment>
-                <Typography style={title}>País: {localStorage.getItem('country')}</Typography>
                 <LineChart
                     width={700}
                     height={300}
                     data={cases}
                     margin={{
-                        top: 5, right: 10, left: 10, bottom: 0,
+                        top: 1, right: 30, left: 0, bottom: 0,
                     }}
                     style={chartStyle}
                 >

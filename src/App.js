@@ -15,6 +15,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const timeArea = {
   textAlign: 'center',
@@ -38,10 +39,18 @@ const title = {
   textAlign: 'center'
 }
 
+const buttonStyle = {
+  margin: 'auto',
+  padding: '15px',
+  fontSize: '20px',
+  marginLeft: '60px'
+}
+
 class App extends Component {
 
   componentDidMount() {
-    localStorage.setItem('country', 'Seleccione...')
+    // this.props.setCountry('Venezuela')
+    localStorage.setItem('country', 'Venezuela')
   }
 
   render() {
@@ -50,7 +59,6 @@ class App extends Component {
       let country = localStorage.getItem('country')
       this.props.setCountryChartConfirmed(country)
     };
-
 
     const {
       confirmed,
@@ -95,8 +103,20 @@ class App extends Component {
             <Typography style={title}>En Desarrollo</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Button variant="contained" color="primary" onClick={handleGraphic}>Actualizar Mapa</Button>
-            <Charts chartsConfirmed={chartsConfirmed} />
+            <Grid>
+              <Grid item xs={12} sm={12} direction="row"
+                justify="center"
+                alignItems="center">
+                <Button variant="contained" color="primary"
+                  onClick={handleGraphic}
+                  style={buttonStyle}>Actualizar Mapa de {localStorage.getItem('country')}</Button>
+              </Grid>
+              <Grid item xs={12} sm={12} direction="row"
+                justify="center"
+                alignItems="center">
+                <Charts chartsConfirmed={chartsConfirmed} />
+              </Grid>
+            </Grid>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <div className="App" style={appContainer}>
