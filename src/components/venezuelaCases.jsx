@@ -43,7 +43,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Miranda: 38
+                                    Miranda: 31
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -52,7 +52,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 12
+                                    Caracas: 20
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -61,7 +61,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textMedium}>
-                                    La Guaira: 9
+                                    La Guaira: 8
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -70,7 +70,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textMedium}>
-                                    Aragua: 9
+                                    Aragua: 8
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -107,6 +107,15 @@ export default class venezuelaCases extends Component {
                             <CardContent>
                                 <Typography style={textLow}>
                                     Apure: 2
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
+                                    Lara: 2
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -160,7 +169,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                    Portuguesa: 1
+                                    Nueva Esparta: 1
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -169,7 +178,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                    Nueva Esparta: 1
+                                    Táchira: 1 (Sin confirmar)
                                 </Typography>
                             </CardContent>
                         </Card>

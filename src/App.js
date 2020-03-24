@@ -14,6 +14,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const timeArea = {
   textAlign: 'center',
@@ -26,7 +28,18 @@ const appContainer = {
   marginTop: '40px'
 }
 
-const title = {
+const titleConfirm = {
+  fontSize: '16px',
+  margin: 'auto',
+  background: 'green',
+  color: 'white',
+  padding: '8px',
+  borderRadius: '20px',
+  marginRight: '0',
+  textAlign: 'center'
+}
+
+const titleNoConfirm = {
   fontSize: '16px',
   margin: 'auto',
   background: 'orange',
@@ -37,14 +50,32 @@ const title = {
   textAlign: 'center'
 }
 
+const buttonStyle = {
+  margin: 'auto',
+  padding: '15px',
+  fontSize: '20px',
+  marginLeft: '60px'
+}
+
 class App extends Component {
 
   componentDidMount() {
-    this.props.loadCountries()
-    localStorage.setItem('country', 'Seleccione..')
+    let payload = {
+      country: 'Venezuela'
+    }
+    this.props.setCountry(payload)
+    localStorage.setItem('country', 'Venezuela')
+    localStorage.setItem('countryTitleMap', 'Venezuela')
   }
 
   render() {
+
+    const handleGraphic = () => {
+      let country = localStorage.getItem('country')
+      localStorage.setItem('countryTitleMap', country)
+      this.props.setCountryChartConfirmed(country)
+    };
+
     const {
       confirmed,
       recovered,
@@ -72,7 +103,7 @@ class App extends Component {
             id="panel2a-header"
           >
             <Typography>Casos específicos para Venezuela</Typography>
-            <Typography style={title}>Sin Confirmar</Typography>
+            <Typography style={titleConfirm}>Actualizado: 24/05/2020 04:00pm</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases />
@@ -85,10 +116,18 @@ class App extends Component {
             id="panel1a-header"
           >
             <Typography>Gráfico: Casos diarios detectados por país seleccionado</Typography>
-            <Typography style={title}>En Desarrollo</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Charts chartsConfirmed={chartsConfirmed} />
+            <Grid>
+              <Grid>
+                <Button variant="contained" color="primary"
+                  onClick={handleGraphic}
+                  style={buttonStyle}>Actualizar Mapa para {localStorage.getItem('country')}</Button>
+              </Grid>
+              <Grid>
+                <Charts chartsConfirmed={chartsConfirmed} />
+              </Grid>
+            </Grid>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <div className="App" style={appContainer}>
@@ -126,6 +165,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
   setCountry: payload => dispatch(setCountry(payload)),
+  setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
 })
 
 export default connect(

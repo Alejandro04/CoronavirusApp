@@ -25,7 +25,6 @@ export const loadCountries = () => dispatch => {
 };
 
 export const setCountry = (payload) => dispatch => {
-
     dispatch({ type: SET_COUNTRY_LOADING });
     Api.setCountry(payload)
         .then(response => response.json())
@@ -33,20 +32,10 @@ export const setCountry = (payload) => dispatch => {
             data => dispatch({ type: SET_COUNTRY_SUCCESS, data }),
             error => dispatch({ type: SET_COUNTRY_ERROR, error: 'Error en el servicio' })
         )
-
-    /* ESTO ME AYUDA A REUSAR EL MISMO REDUXFORM, UNA SOLA ACCIÓN DEL USUARIO QUE EJECUTE EL DISPATCH */
-    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS });
-    Api.setCountryChartConfirmed(payload)
-        .then(response => response.json())
-        .then(
-            data => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS, data }),
-            error => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_ERROR, error: 'Error en el servicio' })
-        )
 };
 
 export const setCountryChartConfirmed = (payload) => dispatch => {
-
-    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS });
+    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_LOADING });
     Api.setCountryChartConfirmed(payload)
         .then(response => response.json())
         .then(

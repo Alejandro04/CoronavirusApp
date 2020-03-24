@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     data: [],
-    loading: false,
+    loadingConfirmed: false,
     error: ''
 };
 export default function reducer(state = initialState, action) {
@@ -14,7 +14,7 @@ export default function reducer(state = initialState, action) {
         case SET_COUNTRY_CHART_CONFIRMED_LOADING: {
             return {
                 ...state,
-                loading: true,
+                loadingConfirmed: true,
                 error: ''
             };
         }
@@ -22,14 +22,14 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 data: action.data,
-                loading: false
+                loadingConfirmed: false
             }
         }
         case SET_COUNTRY_CHART_CONFIRMED_ERROR: {
             return {
                 ...state,
                 loading: false,
-                error: action.error
+                loadingConfirmed: action.error
             };
         }
         default: {
