@@ -25,6 +25,7 @@ export const loadCountries = () => dispatch => {
 };
 
 export const setCountry = (payload) => dispatch => {
+    console.log("si")
     dispatch({ type: SET_COUNTRY_LOADING });
     Api.setCountry(payload)
         .then(response => response.json())

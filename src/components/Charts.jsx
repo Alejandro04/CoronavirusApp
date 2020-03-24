@@ -34,7 +34,7 @@ export default class Charts extends PureComponent {
                     height={300}
                     data={cases}
                     margin={{
-                        top: 1, right: 30, left: 0, bottom: 0,
+                        top: 0, right: 30, left: 0, bottom: 0,
                     }}
                     style={chartStyle}
                 >

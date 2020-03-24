@@ -49,7 +49,10 @@ const buttonStyle = {
 class App extends Component {
 
   componentDidMount() {
-    // this.props.setCountry('Venezuela')
+    let payload = {
+      country: 'Venezuela'
+    }
+    this.props.setCountry(payload)
     localStorage.setItem('country', 'Venezuela')
   }
 
@@ -109,7 +112,7 @@ class App extends Component {
                 alignItems="center">
                 <Button variant="contained" color="primary"
                   onClick={handleGraphic}
-                  style={buttonStyle}>Actualizar Mapa de {localStorage.getItem('country')}</Button>
+                  style={buttonStyle}>Actualizar Mapa para {localStorage.getItem('country')}</Button>
               </Grid>
               <Grid item xs={12} sm={12} direction="row"
                 justify="center"
