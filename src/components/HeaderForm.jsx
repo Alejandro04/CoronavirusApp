@@ -297,11 +297,18 @@ HeaderForm = reduxForm({
 const selector = formValueSelector('countryForm');
 
 HeaderForm = connect(state => {
-  const country = selector(state, 'country')
-  localStorage.setItem('country', country);
-  return {
-    country
-  };
+  const countrySelected = selector(state, 'country')
+  if(countrySelected !== undefined){
+    localStorage.setItem('country', countrySelected);
+    return {
+      country: countrySelected
+    };
+  }else{
+    let country = localStorage.getItem('country')
+    return {
+      country: 'china'
+    };
+  }
 })(HeaderForm);
 
 export default HeaderForm;
