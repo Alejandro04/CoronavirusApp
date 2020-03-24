@@ -25,7 +25,6 @@ export const loadCountries = () => dispatch => {
 };
 
 export const setCountry = (payload) => dispatch => {
-    console.log("si")
     dispatch({ type: SET_COUNTRY_LOADING });
     Api.setCountry(payload)
         .then(response => response.json())
@@ -36,7 +35,7 @@ export const setCountry = (payload) => dispatch => {
 };
 
 export const setCountryChartConfirmed = (payload) => dispatch => {
-    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS });
+    dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_LOADING });
     Api.setCountryChartConfirmed(payload)
         .then(response => response.json())
         .then(

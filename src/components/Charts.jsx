@@ -4,6 +4,7 @@ import {
 } from 'recharts';
 import Typography from '@material-ui/core/Typography';
 import Fragment from 'render-fragment';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const chartStyle = {
     margin: 'auto',
@@ -13,6 +14,20 @@ const chartStyle = {
 const leyend = {
     marginTop: '20px'
 }
+
+const title = {
+    position: 'relative',
+    top: '50px',
+    left: '58px',
+    color: '#3f51b5',
+    fontSize: '20px',
+}
+
+const timeArea = {
+    textAlign: 'center',
+    margin: 'auto',
+    marginTop: '20px'
+  };
 
 export default class Charts extends PureComponent {
     render() {
@@ -27,8 +42,15 @@ export default class Charts extends PureComponent {
                 });
             }
         }
+
+        if (chartsConfirmed.loadingConfirmed) {
+            console.log("cargando")
+            return <div style={timeArea}><CircularProgress /></div>
+        }
+
         return (
             <Fragment>
+                <Typography style={title}>País Actual: {localStorage.getItem('countryTitleMap')}</Typography>
                 <LineChart
                     width={700}
                     height={300}

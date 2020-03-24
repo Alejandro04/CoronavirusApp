@@ -54,12 +54,14 @@ class App extends Component {
     }
     this.props.setCountry(payload)
     localStorage.setItem('country', 'Venezuela')
+    localStorage.setItem('countryTitleMap', 'Venezuela')
   }
 
   render() {
 
     const handleGraphic = () => {
       let country = localStorage.getItem('country')
+      localStorage.setItem('countryTitleMap', country)
       this.props.setCountryChartConfirmed(country)
     };
 
@@ -71,7 +73,7 @@ class App extends Component {
       error,
       selectCountry,
       setCountry,
-      chartsConfirmed
+      chartsConfirmed,
     } = this.props
 
     if (loading) {
@@ -107,16 +109,12 @@ class App extends Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Grid>
-              <Grid item xs={12} sm={12} direction="row"
-                justify="center"
-                alignItems="center">
+              <Grid>
                 <Button variant="contained" color="primary"
                   onClick={handleGraphic}
                   style={buttonStyle}>Actualizar Mapa para {localStorage.getItem('country')}</Button>
               </Grid>
-              <Grid item xs={12} sm={12} direction="row"
-                justify="center"
-                alignItems="center">
+              <Grid>
                 <Charts chartsConfirmed={chartsConfirmed} />
               </Grid>
             </Grid>
@@ -133,7 +131,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
