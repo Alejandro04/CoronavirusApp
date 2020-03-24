@@ -27,7 +27,7 @@ const timeArea = {
     textAlign: 'center',
     margin: 'auto',
     marginTop: '20px'
-  };
+};
 
 export default class Charts extends PureComponent {
     render() {
