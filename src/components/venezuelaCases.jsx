@@ -133,15 +133,6 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                    Lara: 2
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
                                     Mérida: 1
                                 </Typography>
                             </CardContent>
