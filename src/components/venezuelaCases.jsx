@@ -29,163 +29,126 @@ const textDanger = {
     fontSize: '2em',
     color: '#f44336'
 }
+const textWarning = {
+    fontSize: '2em',
+    color: '#bf360c'
+}
 const divider = {
     marginTop: '20px'
 }
 
 export default class venezuelaCases extends Component {
     render() {
+        let styleItem = {}
+        const items = []
+        let deaths = ''
+        for (const [index, value] of cases.entries()) {
+
+            if (value.deaths > 0) {
+                deaths = `Fallecidos: ${value.deaths}`
+            } else {
+                deaths = ''
+            }
+
+            if (value.cases > 15) {
+                styleItem = textDanger
+                items.push(<Grid item sm={4} xs={12}>
+                    <Card style={card}>
+                        <CardContent>
+                            <Typography style={styleItem}>
+                                {value.state}: {value.cases}  </Typography>
+                            <Typography style={textWarning}>
+                                {deaths}</Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>)
+            }
+            if (value.cases >= 9 && value.cases < 15) {
+                styleItem = textMedium
+                items.push(<Grid item sm={4} xs={12}>
+                    <Card style={card}>
+                        <CardContent>
+                            <Typography style={styleItem}>
+                                {value.state}: {value.cases}  </Typography>
+                            <Typography style={textWarning}>
+                                {deaths}</Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>)
+            }
+            if (value.cases < 9) {
+                styleItem = textLow
+                items.push(<Grid item sm={4} xs={12}>
+                    <Card style={card}>
+                        <CardContent>
+                            <Typography style={styleItem}>
+                                {value.state}: {value.cases}  </Typography>
+                            <Typography style={textWarning}>
+                                {deaths}</Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>)
+            }
+        }
         return (
             <Fragment>
                 <Divider style={divider} />
                 <Grid container spacing={1} style={container}>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textDanger}>
-                                    Miranda: 44
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textDanger}>
-                                    Caracas: 17
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textDanger}>
-                                    Aragua: 11, Fallecidos: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textMedium}>
-                                    La Guaira: 9
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Lara: 4
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Barinas: 3
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Los Roques: 4
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Zulia: 3
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Falcón: 2
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Anzoátegui: 2
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Apure: 2
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Mérida: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Cojedes: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Monagas: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Nueva Esparta: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Guárico: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+                    {items}
                 </Grid>
                 <Divider style={divider} />
             </Fragment>
         )
     }
 }
+
+const cases = [
+    {
+        state: 'Miranda', cases: 44,
+    },
+    {
+        state: 'Caracas', cases: 17,
+    },
+    {
+        state: 'Aragua', cases: 11, deaths: 1
+    },
+    {
+        state: 'La Guaira', cases: 9,
+    },
+    {
+        state: 'Los Roques', cases: 4,
+    },
+    {
+        state: 'Lara', cases: 4,
+    },
+    {
+        state: 'Barinas', cases: 3,
+    },
+    {
+        state: 'Zulia', cases: 3,
+    },
+    {
+        state: 'Falcón', cases: 2,
+    },
+    {
+        state: 'Anzoátegui', cases: 2,
+    },
+    {
+        state: 'Apure', cases: 2,
+    },
+    {
+        state: 'Mérida', cases: 1,
+    },
+    {
+        state: 'Cojedes', cases: 1,
+    },
+    {
+        state: 'Monagas', cases: 1,
+    },
+    {
+        state: 'Nueva Esparta', cases: 1,
+    },
+    {
+        state: 'Guárico', cases: 1,
+    }
+]
