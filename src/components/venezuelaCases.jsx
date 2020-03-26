@@ -52,7 +52,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textDanger}>
-                                    Caracas: 16
+                                    Caracas: 17
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -60,8 +60,8 @@ export default class venezuelaCases extends Component {
                     <Grid item sm={4} xs={12}>
                         <Card style={card}>
                             <CardContent>
-                                <Typography style={textMedium}>
-                                    Aragua: 12
+                                <Typography style={textDanger}>
+                                    Aragua: 11, Fallecidos: 1
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -88,6 +88,15 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
+                                    Barinas: 3
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={textLow}>
                                     Los Roques: 4
                                 </Typography>
                             </CardContent>
@@ -97,7 +106,7 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                    Barinas: 3
+                                    Zulia: 3
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -133,24 +142,6 @@ export default class venezuelaCases extends Component {
                         <Card style={card}>
                             <CardContent>
                                 <Typography style={textLow}>
-                                    Zulia: 2
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Bolivar: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
                                     Mérida: 1
                                 </Typography>
                             </CardContent>
@@ -170,15 +161,6 @@ export default class venezuelaCases extends Component {
                             <CardContent>
                                 <Typography style={textLow}>
                                     Monagas: 1
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <Card style={card}>
-                            <CardContent>
-                                <Typography style={textLow}>
-                                    Portuguesa: 1
                                 </Typography>
                             </CardContent>
                         </Card>
