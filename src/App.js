@@ -109,7 +109,7 @@ class App extends Component {
             id="panel2a-header"
           >
             <Typography style={venezuelaTitle}>Casos específicos para Venezuela</Typography>
-            <Typography style={titleConfirm}>Actualizado: 27/03/2020 09:40pm</Typography>
+            <Typography style={titleConfirm}>Actualizado: 28/03/2020 07:00pm</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases />

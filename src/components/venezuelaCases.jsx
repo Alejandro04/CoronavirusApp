@@ -117,13 +117,13 @@ export default class venezuelaCases extends Component {
 
 const cases = [
     {
-        state: 'Miranda', cases: 46,
+        state: 'Miranda', cases: 47,
     },
     {
-        state: 'Caracas', cases: 20,
+        state: 'Caracas', cases: 24,
     },
     {
-        state: 'Aragua', cases: 11, deaths: 1
+        state: 'Aragua', cases: 12, deaths: 1
     },
     {
         state: 'La Guaira', cases: 10,
