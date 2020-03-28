@@ -76,13 +76,26 @@ export default class venezuelaCases extends Component {
                     </Card>
                 </Grid>)
             }
-            if (value.cases < 9) {
+            if (value.cases < 9 && value.cases > 0) {
                 styleItem = textLow
                 items.push(<Grid item sm={4} xs={12}>
                     <Card style={card}>
                         <CardContent>
                             <Typography style={styleItem}>
                                 {value.state}: {value.cases}  </Typography>
+                            <Typography style={textWarning}>
+                                {deaths}</Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>)
+            }
+            if (value.cases === 0) {
+                styleItem = textLow
+                items.push(<Grid item sm={4} xs={12}>
+                    <Card style={card}>
+                        <CardContent>
+                            <Typography style={styleItem}>
+                                {value.state}  </Typography>
                             <Typography style={textWarning}>
                                 {deaths}</Typography>
                         </CardContent>
@@ -104,16 +117,16 @@ export default class venezuelaCases extends Component {
 
 const cases = [
     {
-        state: 'Miranda', cases: 44,
+        state: 'Miranda', cases: 46,
     },
     {
-        state: 'Caracas', cases: 17,
+        state: 'Caracas', cases: 20,
     },
     {
         state: 'Aragua', cases: 11, deaths: 1
     },
     {
-        state: 'La Guaira', cases: 9,
+        state: 'La Guaira', cases: 10,
     },
     {
         state: 'Los Roques', cases: 4,
@@ -150,5 +163,8 @@ const cases = [
     },
     {
         state: 'Guárico', cases: 1,
-    }
+    },
+    {
+        state: 'Estado no definido', cases: 0, deaths: 1
+    },
 ]
