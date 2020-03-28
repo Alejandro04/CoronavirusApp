@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
 import Charts from './components/Charts'
-import { loadCountries, setCountry, setCountryChartConfirmed } from './effects/Countries'
+import { loadCountries, setCountry, setCountryChartConfirmed, setCountryChartDeath } from './effects/Countries'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
 
@@ -78,6 +78,7 @@ class App extends Component {
       let country = localStorage.getItem('country')
       localStorage.setItem('countryTitleMap', country)
       this.props.setCountryChartConfirmed(country)
+      this.props.setCountryChartDeath(country)
     };
 
     const {
@@ -89,6 +90,7 @@ class App extends Component {
       selectCountry,
       setCountry,
       chartsConfirmed,
+      chartsDeath
     } = this.props
 
     if (loading) {
@@ -129,7 +131,7 @@ class App extends Component {
                   style={buttonStyle}>Actualizar Mapa para {localStorage.getItem('country')}</Button>
               </Grid>
               <Grid>
-                <Charts chartsConfirmed={chartsConfirmed} />
+                <Charts chartsConfirmed={chartsConfirmed} chartsDeath={chartsDeath} />
               </Grid>
             </Grid>
           </ExpansionPanelDetails>
@@ -145,6 +147,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
@@ -152,7 +155,8 @@ const mapStateToProps = state => {
       deaths: 0,
       loading: state.Countries.loading,
       error: state.Countries.error,
-      ChartsConfirmed: '',
+      chartsConfirmed: '',
+      chartsDeath: '',
     }
   } else {
     return {
@@ -162,6 +166,7 @@ const mapStateToProps = state => {
       loading: state.Countries.loading,
       error: state.Countries.error,
       chartsConfirmed: state.ChartsConfirmed,
+      chartsDeath: state.ChartsDeath,
     }
   }
 }
@@ -170,6 +175,7 @@ const mapDispatchToProps = dispatch => ({
   loadCountries: () => dispatch(loadCountries()),
   setCountry: payload => dispatch(setCountry(payload)),
   setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
+  setCountryChartDeath: payload => dispatch(setCountryChartDeath(payload)),
 })
 
 export default connect(

@@ -13,6 +13,10 @@ export const SET_COUNTRY_CHART_CONFIRMED_LOADING = 'SET_COUNTRY_CHART_CONFIRMED_
 export const SET_COUNTRY_CHART_CONFIRMED_SUCCESS = 'SET_COUNTRY_CHART_CONFIRMED_SUCCESS'
 export const SET_COUNTRY_CHART_CONFIRMED_ERROR = 'SET_COUNTRY_CHART_CONFIRMED_ERROR'
 
+export const SET_COUNTRY_CHART_DEATH_LOADING = 'SET_COUNTRY_CHART_DEATH_LOADING'
+export const SET_COUNTRY_CHART_DEATH_SUCCESS = 'SET_COUNTRY_CHART_DEATH_SUCCESS'
+export const SET_COUNTRY_CHART_DEATH_ERROR = 'SET_COUNTRY_CHART_DEATH_ERROR'
+
 
 export const loadCountries = () => dispatch => {
     dispatch({ type: LOAD_COUNTRIES_LOADING });
@@ -41,5 +45,15 @@ export const setCountryChartConfirmed = (payload) => dispatch => {
         .then(
             data => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_SUCCESS, data }),
             error => dispatch({ type: SET_COUNTRY_CHART_CONFIRMED_ERROR, error: 'Error en el servicio' })
+        )
+};
+
+export const setCountryChartDeath = (payload) => dispatch => {
+    dispatch({ type: SET_COUNTRY_CHART_DEATH_LOADING });
+    Api.setCountryChartDeath(payload)
+        .then(response => response.json())
+        .then(
+            data => dispatch({ type: SET_COUNTRY_CHART_DEATH_SUCCESS, data }),
+            error => dispatch({ type: SET_COUNTRY_CHART_DEATH_ERROR, error: 'Error en el servicio' })
         )
 };

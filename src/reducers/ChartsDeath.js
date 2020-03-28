@@ -2,11 +2,11 @@ import {
     SET_COUNTRY_CHART_DEATH_LOADING,
     SET_COUNTRY_CHART_DEATH_SUCCESS,
     SET_COUNTRY_CHART_DEATH_ERROR,
-} from "../effects/Charts";
+} from "../effects/Countries";
 
 const initialState = {
     data: [],
-    loading: false,
+    loadingDeath: false,
     error: ''
 };
 export default function reducer(state = initialState, action) {
@@ -14,7 +14,7 @@ export default function reducer(state = initialState, action) {
         case SET_COUNTRY_CHART_DEATH_LOADING: {
             return {
                 ...state,
-                loading: true,
+                loadingDeath: true,
                 error: ''
             };
         }
@@ -22,13 +22,13 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 data: action.data,
-                loading: false
+                loadingDeath: false
             }
         }
         case SET_COUNTRY_CHART_DEATH_ERROR: {
             return {
                 ...state,
-                loading: false,
+                loadingDeath: false,
                 error: action.error
             };
         }

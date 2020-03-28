@@ -31,7 +31,7 @@ const timeArea = {
 
 export default class Charts extends PureComponent {
     render() {
-        const { chartsConfirmed } = this.props
+        const { chartsConfirmed, chartsDeath } = this.props
         let cases = []
         if (chartsConfirmed !== undefined) {
             if (chartsConfirmed.data !== undefined) {
@@ -42,9 +42,17 @@ export default class Charts extends PureComponent {
                 });
             }
         }
+        if (chartsDeath !== undefined) {
+            if (chartsDeath.data !== undefined) {
+                chartsDeath.data.forEach(element => {
+                    cases.push({
+                        name: element.Date.substr(0, 10), deaths: element.Cases
+                    })
+                });
+            }
+        }
 
-        if (chartsConfirmed.loadingConfirmed) {
-            console.log("cargando")
+        if (chartsConfirmed.loadingConfirmed && chartsDeath.loadingDeath) {
             return <div style={timeArea}><CircularProgress /></div>
         }
 
@@ -66,6 +74,7 @@ export default class Charts extends PureComponent {
                     <Tooltip />
                     <Legend style={leyend} />
                     <Line type="monotone" dataKey="confirmed" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="deaths" stroke="#d32f2f" activeDot={{ r: 8 }} />
                 </LineChart>
             </Fragment>
         );
