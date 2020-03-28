@@ -42,7 +42,7 @@ const titleConfirm = {
 const titleNoConfirm = {
   fontSize: '16px',
   margin: 'auto',
-  background: 'orange',
+  background: 'red',
   color: 'white',
   padding: '8px',
   borderRadius: '20px',
@@ -122,6 +122,7 @@ class App extends Component {
             id="panel1a-header"
           >
             <Typography>Gráfico: Casos diarios detectados por país seleccionado</Typography>
+            <Typography style={titleNoConfirm}>Agregado: curva de muertes</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Grid>
