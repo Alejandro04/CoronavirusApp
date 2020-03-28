@@ -115,6 +115,7 @@ export default class venezuelaCases extends Component {
     }
 }
 
+
 const cases = [
     {
         state: 'Miranda', cases: 47,
