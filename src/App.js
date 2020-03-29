@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header'
 import CountryCases from './components/CountryCases'
-import Charts from './components/Charts'
+import ChartsConfirmedComponent from './components/ChartsConfirmed'
+import ChartsDeathComponent from './components/ChartsDeath'
 import { loadCountries, setCountry, setCountryChartConfirmed, setCountryChartDeath } from './effects/Countries'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
@@ -121,8 +122,7 @@ class App extends Component {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Gráfico: Casos diarios detectados por país seleccionado</Typography>
-            <Typography style={titleNoConfirm}>Agregado: curva de muertes</Typography>
+            <Typography>Gráfico: Curva de casos detectados</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Grid>
@@ -132,7 +132,28 @@ class App extends Component {
                   style={buttonStyle}>Actualizar Mapa para {localStorage.getItem('country')}</Button>
               </Grid>
               <Grid>
-                <Charts chartsConfirmed={chartsConfirmed} chartsDeath={chartsDeath} />
+                <ChartsConfirmedComponent chartsConfirmed={chartsConfirmed} />
+              </Grid>
+            </Grid>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography>Gráfico: Curva de fallecidos</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Grid>
+              <Grid>
+                <Button variant="contained" color="primary"
+                  onClick={handleGraphic}
+                  style={buttonStyle}>Actualizar Mapa para {localStorage.getItem('country')}</Button>
+              </Grid>
+              <Grid>
+                <ChartsDeathComponent chartsDeath={chartsDeath} />
               </Grid>
             </Grid>
           </ExpansionPanelDetails>

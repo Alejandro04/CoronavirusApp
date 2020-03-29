@@ -29,9 +29,9 @@ const timeArea = {
     marginTop: '20px'
 };
 
-export default class Charts extends PureComponent {
+export default class ChartsConfirmed extends PureComponent {
     render() {
-        const { chartsConfirmed, chartsDeath } = this.props
+        const { chartsConfirmed } = this.props
         let cases = []
         if (chartsConfirmed !== undefined) {
             if (chartsConfirmed.data !== undefined) {
@@ -42,17 +42,8 @@ export default class Charts extends PureComponent {
                 });
             }
         }
-        if (chartsDeath !== undefined) {
-            if (chartsDeath.data !== undefined) {
-                chartsDeath.data.forEach(element => {
-                    cases.push({
-                        name: element.Date.substr(0, 10), deaths: element.Cases
-                    })
-                });
-            }
-        }
 
-        if (chartsConfirmed.loadingConfirmed && chartsDeath.loadingDeath) {
+        if (chartsConfirmed.loadingConfirmed) {
             return <div style={timeArea}><CircularProgress /></div>
         }
 
@@ -73,8 +64,7 @@ export default class Charts extends PureComponent {
                     <YAxis />
                     <Tooltip />
                     <Legend style={leyend} />
-                    <Line type="monotone" dataKey="confirmed" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="deaths" stroke="#d32f2f" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="confirmed" stroke="#8884d8" activeDot={{ r: 20 }} />
                 </LineChart>
             </Fragment>
         );
