@@ -43,67 +43,71 @@ export default class venezuelaCases extends Component {
         let styleItem = {}
         const items = []
         let deaths = ''
-        for (const [index, value] of cities.data.entries()) {
 
-            if (value.deaths > 0) {
-                deaths = `Fallecidos: ${value.deaths}`
-            } else {
-                deaths = ''
-            }
+        if (cities.data.cities !== undefined) {
+            for (const [index, value] of cities.data.cities.entries()) {
 
-            if (value.cases > 15) {
-                styleItem = textDanger
-                items.push(<Grid item sm={4} xs={12}>
-                    <Card style={card}>
-                        <CardContent>
-                            <Typography style={styleItem}>
-                                {value.state}: {value.cases}  </Typography>
-                            <Typography style={textWarning}>
-                                {deaths}</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>)
-            }
-            if (value.cases >= 9 && value.cases < 15) {
-                styleItem = textMedium
-                items.push(<Grid item sm={4} xs={12}>
-                    <Card style={card}>
-                        <CardContent>
-                            <Typography style={styleItem}>
-                                {value.state}: {value.cases}  </Typography>
-                            <Typography style={textWarning}>
-                                {deaths}</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>)
-            }
-            if (value.cases < 9 && value.cases > 0) {
-                styleItem = textLow
-                items.push(<Grid item sm={4} xs={12}>
-                    <Card style={card}>
-                        <CardContent>
-                            <Typography style={styleItem}>
-                                {value.state}: {value.cases}  </Typography>
-                            <Typography style={textWarning}>
-                                {deaths}</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>)
-            }
-            if (value.cases === 0) {
-                styleItem = textLow
-                items.push(<Grid item sm={4} xs={12}>
-                    <Card style={card}>
-                        <CardContent>
-                            <Typography style={styleItem}>
-                                {value.state}  </Typography>
-                            <Typography style={textWarning}>
-                                {deaths}</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>)
+                if (value.deaths > 0) {
+                    deaths = `Fallecidos: ${value.deaths}`
+                } else {
+                    deaths = ''
+                }
+
+                if (value.cases > 15) {
+                    styleItem = textDanger
+                    items.push(<Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={styleItem}>
+                                    {value.state}: {value.cases}  </Typography>
+                                <Typography style={textWarning}>
+                                    {deaths}</Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>)
+                }
+                if (value.cases >= 9 && value.cases < 15) {
+                    styleItem = textMedium
+                    items.push(<Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={styleItem}>
+                                    {value.state}: {value.cases}  </Typography>
+                                <Typography style={textWarning}>
+                                    {deaths}</Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>)
+                }
+                if (value.cases < 9 && value.cases > 0) {
+                    styleItem = textLow
+                    items.push(<Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={styleItem}>
+                                    {value.state}: {value.cases}  </Typography>
+                                <Typography style={textWarning}>
+                                    {deaths}</Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>)
+                }
+                if (value.cases === 0) {
+                    styleItem = textLow
+                    items.push(<Grid item sm={4} xs={12}>
+                        <Card style={card}>
+                            <CardContent>
+                                <Typography style={styleItem}>
+                                    {value.state}  </Typography>
+                                <Typography style={textWarning}>
+                                    {deaths}</Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>)
+                }
             }
         }
+
         return (
             <Fragment>
                 <Divider style={divider} />

@@ -116,7 +116,7 @@ class App extends Component {
             id="panel2a-header"
           >
             <Typography style={venezuelaTitle}>Casos específicos para Venezuela</Typography>
-            <Typography style={titleConfirm}>Actualizado: 29/03/2020 05:30pm</Typography>
+            <Typography style={titleConfirm}>Actualizado: {cities.data.lastUpdate}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <VenezuelaCases cities={cities} />
@@ -174,7 +174,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   if (state.Countries.data.error) {
     return {
       confirmed: 0,
