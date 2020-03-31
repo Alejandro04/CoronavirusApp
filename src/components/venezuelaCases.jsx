@@ -39,6 +39,7 @@ const divider = {
 
 export default class venezuelaCases extends Component {
     render() {
+        const { cities } = this.props
         let styleItem = {}
         const items = []
         let deaths = ''

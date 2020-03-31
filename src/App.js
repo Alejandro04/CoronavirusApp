@@ -4,7 +4,11 @@ import Header from './components/Header'
 import CountryCases from './components/CountryCases'
 import ChartsConfirmedComponent from './components/ChartsConfirmed'
 import ChartsDeathComponent from './components/ChartsDeath'
-import { loadCountries, setCountry, setCountryChartConfirmed, setCountryChartDeath } from './effects/Countries'
+import { loadCountries, 
+  setCountry, 
+  setCountryChartConfirmed, 
+  setCountryChartDeath,
+  setCountryToGetCities } from './effects/Countries'
 import { connect } from 'react-redux'
 import VenezuelaCases from './components/venezuelaCases'
 
@@ -66,9 +70,10 @@ class App extends Component {
 
   componentDidMount() {
     let payload = {
-      country: 'Venezuela'
+      country: 'venezuela'
     }
     this.props.setCountry(payload)
+    this.props.setCountryToGetCities(payload)
     localStorage.setItem('country', 'Venezuela')
     localStorage.setItem('countryTitleMap', 'Venezuela')
   }
@@ -91,7 +96,8 @@ class App extends Component {
       selectCountry,
       setCountry,
       chartsConfirmed,
-      chartsDeath
+      chartsDeath,
+      cities
     } = this.props
 
     if (loading) {
@@ -113,7 +119,7 @@ class App extends Component {
             <Typography style={titleConfirm}>Actualizado: 29/03/2020 05:30pm</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <VenezuelaCases />
+            <VenezuelaCases cities={cities} />
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel>
@@ -178,6 +184,7 @@ const mapStateToProps = state => {
       error: state.Countries.error,
       chartsConfirmed: '',
       chartsDeath: '',
+      cities: '',
     }
   } else {
     return {
@@ -188,6 +195,7 @@ const mapStateToProps = state => {
       error: state.Countries.error,
       chartsConfirmed: state.ChartsConfirmed,
       chartsDeath: state.ChartsDeath,
+      cities: state.Cities
     }
   }
 }
@@ -197,6 +205,7 @@ const mapDispatchToProps = dispatch => ({
   setCountry: payload => dispatch(setCountry(payload)),
   setCountryChartConfirmed: payload => dispatch(setCountryChartConfirmed(payload)),
   setCountryChartDeath: payload => dispatch(setCountryChartDeath(payload)),
+  setCountryToGetCities: payload => dispatch(setCountryToGetCities(payload)),
 })
 
 export default connect(
