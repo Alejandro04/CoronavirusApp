@@ -43,7 +43,7 @@ export default class venezuelaCases extends Component {
         let styleItem = {}
         const items = []
         let deaths = ''
-        for (const [index, value] of cases.entries()) {
+        for (const [index, value] of cities.data.entries()) {
 
             if (value.deaths > 0) {
                 deaths = `Fallecidos: ${value.deaths}`
@@ -115,61 +115,3 @@ export default class venezuelaCases extends Component {
         )
     }
 }
-
-
-const cases = [
-    {
-        state: 'Miranda', cases: 50,
-    },
-    {
-        state: 'Caracas', cases: 25, deaths: 1
-    },
-    {
-        state: 'Aragua', cases: 16, deaths: 1
-    },
-    {
-        state: 'La Guaira', cases: 10,
-    },
-    {
-        state: 'Los Roques', cases: 4,
-    },
-    {
-        state: 'Lara', cases: 4,
-    },
-    {
-        state: 'Barinas', cases: 5,
-    },
-    {
-        state: 'Zulia', cases: 4,
-    },
-    {
-        state: 'Falcón', cases: 2,
-    },
-    {
-        state: 'Anzoátegui', cases: 2,
-    },
-    {
-        state: 'Apure', cases: 2,
-    },
-    {
-        state: 'Mérida', cases: 1,
-    },
-    {
-        state: 'Cojedes', cases: 1,
-    },
-    {
-        state: 'Monagas', cases: 1,
-    },
-    {
-        state: 'Nueva Esparta', cases: 1,
-    },
-    {
-        state: 'Guárico', cases: 1,
-    },
-    {
-        state: 'Bolivar', cases: 1,
-    },
-    {
-        state: 'Estado no definido', cases: 0, deaths: 1
-    },
-]
